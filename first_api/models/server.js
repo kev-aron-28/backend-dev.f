@@ -8,7 +8,8 @@ class Server {
         this.port = 3000;
         this.app = express();
         this.paths = {
-            hello: '/api/'
+            hello: '/api/',
+            movies: '/api/movies/'
         };
 
         this.middlewares()
@@ -23,6 +24,7 @@ class Server {
 
     routes() {
         this.app.use(this.paths.hello, require('../routes/testRoute'))
+        this.app.use(this.paths.movies, require('../routes/movies'))
     }
 
     listen() {
